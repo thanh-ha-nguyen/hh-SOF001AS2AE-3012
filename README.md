@@ -17,7 +17,15 @@ Are the statements below true or false? Give arguments!
 
 ## Task 2: More warm-up with multiplicity constraints
 
-TBD
+Determine multiplicity constraints for the relationship types below. Mark the constraints (min..max) to the diagrams.
+
+![Task 2: More warm-up with multiplicity constraints 1](er-1-task-2-1.png)
+
+*   **Person (0..*)** — owns — **(1..1) Dog**
+
+![Task 2: More warm-up with multiplicity constraints 2](er-1-task-2-2.png)
+
+*   **Hotel (1..1)** — has — **(1..*) Room**
 
 ## Task 3: Clubs
 
