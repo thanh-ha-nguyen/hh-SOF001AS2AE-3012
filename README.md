@@ -37,7 +37,7 @@ title: Club membership
 ---
 erDiagram
   direction LR
-  Employee one or many optionally to only one Club : belongs
+  Employee zero or many optionally to zero or one Club : "belongs<br/>to"
 ```
 
 ## Task 4: Company
