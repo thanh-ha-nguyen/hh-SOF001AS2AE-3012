@@ -126,3 +126,31 @@ erDiagram
     datetime reservation_datetime
   }
 ```
+
+## Task 7: Bicycle manufacturing
+
+Create an ER diagram that captures all the given information. Identify all entity types, attributes, and relationship types. Underline the unique identifier (if any exists). Do not add any attributes that cannot be derived directly from the given text.
+
+> "A company manufactures many models of road racing bicycles. Each bicycle model is characterized by a model name and frame size. Each model is made up of many parts, and each part may be used in the manufacture of more than one model. Each part has a unique part number and a description. Each bicycle model is manufactured at just one of the company's factories, which are located in Helsinki, Turku, and Tampere - one factory in each city. Each factory manufactures many types of parts. Each type of part is manufactured at one factory only."
+
+```mermaid
+---
+title: Bicycle manufacturing
+---
+erDiagram
+  direction TB
+  Factory only one optionally to one or many Model : manufactures
+  Factory only one optionally to one or many Part : manufactures
+  Model one or many optionally to one or many Part : "made of"
+  Factory {
+    string city PK
+  }
+  Model["Bicycle Model"] {
+    string model_name PK
+    string frame_size PK
+  }
+  Part {
+    string part_number PK
+    string description
+  }
+```
