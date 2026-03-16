@@ -51,8 +51,7 @@ title: Company
 erDiagram
   direction TB
   Department one optionally to many Employee : employs
-  Department one to one Manager : manages
-  Manager one to one Employee : is
+  Employee one optionally to zero or one Department : manages
   Employee many optionally to many Project : works
 ```
 
