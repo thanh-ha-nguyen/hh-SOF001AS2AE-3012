@@ -72,3 +72,57 @@ erDiagram
   Musician zero or many optionally to zero or many Competition : participates
   Musician only one optionally to zero or many Competition : wins
 ```
+
+## Task 6: Simple library
+
+Create an ER diagram that captures all the given information. Identify all entity types, attributes, and relationship types. Underline the unique identifier (if any exists). Do not add any attributes that cannot be derived directly from the given text.
+
+> "In the university library, there is a single copy of every recommended course textbook. All students are allowed to borrow textbooks. The loan period is two days. Textbooks out on loan can be reserved."
+
+Examples of important user transactions include the following:
+
+- List of textbooks (name, author, ISBN).
+- List of overdue loans (due date, textbook name, student number, student name, email).
+- List of reservations for a certain textbook (textbook name, reservation date and time, student number, student name, email).
+
+### Simplified version
+
+```mermaid
+---
+title: Simple Library (simplified)
+---
+erDiagram
+  direction TB
+  Student many optionally to many Textbook : borrows
+  Student many optionally to many Textbook : reserves
+```
+
+### Extended version
+
+```mermaid
+---
+title: Simple Library (extended)
+---
+erDiagram
+  direction LR
+  Student one optionally to many Loan : requests
+  Loan many optionally to one Textbook : "to borrow"
+  Student one to many Reservation : requests
+  Reservation many to one Textbook : "to reserve"
+  Student {
+    string student_number PK
+    string student_name
+    string email
+  }
+  Textbook {
+    string isbn PK
+    string title
+    string author
+  }
+  Loan {
+    datetime due_datetime
+  }
+  Reservation {
+    datetime reservation_datetime
+  }
+```
