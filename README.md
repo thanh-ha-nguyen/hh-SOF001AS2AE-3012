@@ -154,3 +154,41 @@ erDiagram
     string description
   }
 ```
+
+## Task 8: Record company
+
+Create an ER diagram that captures all the given information. Identify all entity types, attributes, and relationship types. Underline the unique identifier (if any exists). Do not add any attributes that cannot be derived directly from the given text.
+
+> "A record company has decided to store information about musicians who perform on its albums. Each track on an album is performed by one or more musicians, and a musician may perform on a number of tracks. Each track is composed by one or more musicians. No track can appear on more than one album. Each album is produced by a musician."
+
+Examples of important user transactions include the following:
+
+- List of musicians (ssn, name, email). ssn = social security number.
+- Top 10 list of musicians who have been performing on the biggest number of albums.
+- List of producers (ssn, name, email, number of albums produced).
+- List of albums (album title, producer, date when released, number of tracks).
+- List of tracks on an album (track name, track length, names of musicians who perform on the track).
+
+```mermaid
+---
+title: Record Company
+---
+erDiagram
+  Album only one to one or many Track : contains
+  Musician zero or many optionally to only one Album : produces
+  Musician one or many optionally to one or many Track : "performs on"
+  Musician one or many optionally to one or many Track : composes
+    Musician {
+    string ssn PK
+    string name
+    string email
+  }
+  Album {
+    string album_title PK
+    date release_date
+  }
+  Track {
+    string track_name PK
+    time length
+  }
+```
