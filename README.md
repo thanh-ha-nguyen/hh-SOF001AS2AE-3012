@@ -29,6 +29,8 @@ Determine multiplicity constraints for the relationship types below. Mark the co
 
 ## Task 3: Clubs
 
+> "A company organizes a lot of activities for its employees. There are many clubs (tennis club, cycling club, theatre club, etc.) in the company. Each employee may join any club, but they are not allowed to belong to more than one club."
+
 ```mermaid
 ---
 title: Club membership
@@ -39,6 +41,9 @@ erDiagram
 ```
 
 ## Task 4: Company
+
+> "In a company, there is a division that operates many departments. Each department employs many people. Each employee is employed by exactly one department. Each department has a manager. The manager of the department is always one of the employees who are employed by the department. In addition, there are many projects. Each employee may work in many projects. Each project has many project members."
+
 
 ```mermaid
 ---
