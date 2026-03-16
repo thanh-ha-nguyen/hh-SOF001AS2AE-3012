@@ -44,7 +44,6 @@ erDiagram
 
 > "In a company, there is a division that operates many departments. Each department employs many people. Each employee is employed by exactly one department. Each department has a manager. The manager of the department is always one of the employees who are employed by the department. In addition, there are many projects. Each employee may work in many projects. Each project has many project members."
 
-
 ```mermaid
 ---
 title: Company
@@ -55,4 +54,21 @@ erDiagram
   Department one to one Manager : manages
   Manager one to one Employee : is
   Employee many optionally to many Project : works
+```
+
+## Task 5: Orchestras 
+
+> "There are many orchestras. Each musician belongs to exactly one orchestra. There are many music competitions organized every year. Musicians may participate in several music competitions yearly. The musician who performs the best in a music competition wins the particular competition. Each competition is organized by exactly one orchestra. Each orchestra has a leader. The orchestra leader is always a musician who is a member of the orchestra."
+
+```mermaid
+---
+title: Orchestras
+---
+erDiagram
+  direction TB
+  Orchestra only one optionally to one or many Musician : "has members"
+  Orchestra zero or one optionally to only one Musician : "led by"
+  Orchestra only one optionally to zero or many Competition : organizes
+  Musician zero or many optionally to zero or many Competition : participates
+  Musician only one optionally to zero or many Competition : wins
 ```
