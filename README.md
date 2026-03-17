@@ -241,3 +241,40 @@ erDiagram
     datetime meeting_datetime
   }
 ```
+
+## Bonus task 10: Dentistry
+
+Create an ER diagram that captures all the given information. Identify all entity types, attributes, and relationship types. Underline the unique identifier (if any exists). Do not add any attributes that cannot be derived directly from the given text.
+
+> "A dentistry maintains dentist/patient appointment data. A patient is given an appointment at a specific date and time with a dentist located at a particular reception room. On each day of patient appointments, a dentist is allocated to a specific reception room for that day. A dentist can work in different reception rooms on different days. A patient can have an appointment with any dentist. Each patient has a personal dentist who is responsible for sending the patient invitations for regular dental check-ups."
+
+Examples of important user transactions include the following queries:
+
+- List of patients (patient number, name).
+- List of reception rooms that are booked for a given date (room number, dentist number, dentist name).
+
+```mermaid
+---
+title: Dentistry
+---
+erDiagram
+  Patient only one to zero or many Dentist : "has personal dentist"
+  Patient only one optionally to zero or many Appointment : "has"
+  Dentist only one optionally to zero or many Appointment : "attends"
+  ReceptionRoom only one optionally to zero or many Appointment : "hosts"
+  Patient {
+    string patient_number PK
+    string name
+  }
+  Dentist {
+    string dentist_number PK
+    string name
+  }
+  ReceptionRoom {
+    string room_number PK
+  }
+  Appointment {
+    date appointment_date PK
+    time appointment_time PK
+  }
+```
