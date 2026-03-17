@@ -191,3 +191,53 @@ erDiagram
     time length
   }
 ```
+
+## Bonus task 9: Thesis
+
+Create an ER diagram that captures all the given information. Identify all entity types, attributes, and relationship types. Underline the unique identifier (if any exists). Do not add any attributes that cannot be derived directly from the given text.
+
+> "In the university, each student should complete one thesis (thesis project). Each thesis is supervised by one teacher and evaluated by another teacher. Some teachers might have supervised and/or evaluated these even 50 or more times, whereas some new teachers haven't supervised/evaluated any thesis yet. The thesis gets its final grade in an evaluation meeting where there are usually many theses evaluated. Though it could be so that no BIT theses have been completed for a certain evaluation meeting, and thus none were evaluated there. To be able to run an evaluation meeting, at least one teacher who acts as the chair of the evaluation meeting and two other teachers should be present in the meeting."
+
+Examples of important user transactions include the following queries:
+
+- Does a certain student have a thesis (thesis project) already or not yet?
+- Who is the supervisor of a certain student's thesis?
+- Has a thesis evaluator for a certain thesis been assigned already?
+- When have the evaluation meetings been held?
+- Who was present as a member when a certain student's thesis was evaluated?
+- Who was present as the chair when a certain student's thesis was evaluated?
+- Which theses were evaluated in a certain meeting?
+
+Here is Mr. John Doe. He has been involved with many thesis-related activities as follows:
+
+- Supervisor of five theses.
+- Evaluator of seven theses.
+- Attended as a member of ten thesis evaluation meetings.
+- Acted as a chair in two thesis evaluation meetings.
+
+```mermaid
+---
+title: Thesis
+---
+erDiagram
+  Student only one optionally to zero or one Thesis : completes
+  Teacher only one optionally to zero or many Thesis : supervises
+  Teacher zero or one optionally to zero or many Thesis : evaluates
+  Teacher only one optionally to zero or many EvaluationMeeting : chairs
+  Teacher zero or many optionally to zero or many EvaluationMeeting : attends
+  EvaluationMeeting only one optionally to zero or many Thesis : "graded in"
+  Student {
+    string student_number PK
+  }
+  Thesis {
+    string title
+    string grade
+  }
+  Teacher {
+    string staff_id PK
+    string name
+  }
+  EvaluationMeeting {
+    datetime meeting_datetime
+  }
+```
