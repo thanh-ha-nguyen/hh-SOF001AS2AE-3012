@@ -24,11 +24,11 @@ e.  ![Task 2e](./images/ld-task-2-e.png)
 
 ## Task 3: Translating ER diagrams to relation schemas
 
-a.  ![Task 2a](./images/ld-task-3-a.png)
+a.  ![Task 3a](./images/ld-task-3-a.png)
 
-b.  ![Task 2b](./images/ld-task-3-b.png)
+b.  ![Task 3b](./images/ld-task-3-b.png)
 
-c.  ![Task 2c](./images/ld-task-3-c.png)
+c.  ![Task 3c](./images/ld-task-3-c.png)
 
 ## Task 4: Boat crews
 
